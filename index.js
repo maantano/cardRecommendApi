@@ -26,6 +26,11 @@ const db = mysql.createPool({
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
   console.log(`running on port ${PORT}!!`);
+  console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
+  console.log("process.env.DB_HOST ==>", process.env.DB_USER);
+  console.log("process.env.DB_HOST ==>", process.env.DB_PASSWORD);
+  console.log("process.env.DB_HOST ==>", process.env.DB_NAME);
+  console.log("process.env.DB_HOST ==>", process.env.DB_PORT);
 });
 
 app.get("/", (req, res) => {
