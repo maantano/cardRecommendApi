@@ -25,7 +25,7 @@ const db = mysql.createPool({
 
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
-  console.log(`running on port ${PORT}`);
+  console.log(`running on port ${PORT}!!`);
 });
 
 app.get("/", (req, res) => {
