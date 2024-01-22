@@ -53,7 +53,7 @@ app.get("/test1", (req, res) => {
   });
 });
 
-app.get(`${process.env.DB_HOST}/api/cardAll`, (req, res) => {
+app.get(`http://${process.env.DB_HOST}/api/cardAll`, (req, res) => {
   console.log("호출은 하냐? /api/cardAll");
   const selectQ = "SELECT * FROM cardAll";
   db.query(selectQ, (err, result) => {
@@ -64,7 +64,7 @@ app.get(`${process.env.DB_HOST}/api/cardAll`, (req, res) => {
     }
   });
 });
-app.post(`${process.env.DB_HOST}/api/randomCard`, (req, res) => {
+app.post(`https://${process.env.DB_HOST}/api/randomCard`, (req, res) => {
   console.log("호출은 하냐? /api/randomCard");
   const query = "SELECT * FROM cardAll ORDER BY RAND() LIMIT 20";
 
