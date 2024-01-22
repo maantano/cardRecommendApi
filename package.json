@@ -17,6 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "proxy": "ec2-3-38-115-252.ap-northeast-2.compute.amazonaws.com:8001",
   "author": "",
   "license": "ISC",
   "description": ""
