@@ -31,15 +31,16 @@ app.listen(PORT, () => {
   console.log("process.env.DB_HOST ==>", process.env.DB_PASSWORD);
   console.log("process.env.DB_HOST ==>", process.env.DB_NAME);
   console.log("process.env.DB_HOST ==>", process.env.DB_PORT);
+  console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
-app.get("/", (req, res) => {
-  const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
-  db.query(sqlQuery, (err, result) => {
-    console.log(err);
-    console.log("insert");
-  });
-});
+// app.get("/", (req, res) => {
+//   const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
+//   db.query(sqlQuery, (err, result) => {
+//     console.log(err);
+//     console.log("insert");
+//   });
+// });
 
 app.get("/test1", (req, res) => {
   const selectQ = "SELECT * FROM TEST01";
