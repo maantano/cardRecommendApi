@@ -53,6 +53,7 @@ app.get("/test1", (req, res) => {
 });
 
 app.get("/api/cardAll", (req, res) => {
+  console.log("호출은 하냐? /api/cardAll");
   const selectQ = "SELECT * FROM cardAll";
   db.query(selectQ, (err, result) => {
     if (!err) {
@@ -63,6 +64,7 @@ app.get("/api/cardAll", (req, res) => {
   });
 });
 app.post("/api/randomCard", (req, res) => {
+  console.log("호출은 하냐? /api/randomCard");
   const query = "SELECT * FROM cardAll ORDER BY RAND() LIMIT 20";
 
   db.query(query, (err, result) => {
