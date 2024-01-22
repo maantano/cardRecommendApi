@@ -34,13 +34,14 @@ app.listen(PORT, () => {
   console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
-// app.get("/", (req, res) => {
-//   const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
-//   db.query(sqlQuery, (err, result) => {
-//     console.log(err);
-//     console.log("insert");
-//   });
-// });
+app.get("/", (req, res) => {
+  console.log("/ 호출!! ???");
+  // const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
+  // db.query(sqlQuery, (err, result) => {
+  //   console.log(err);
+  //   console.log("insert");
+  // });
+});
 
 app.get("/test1", (req, res) => {
   const selectQ = "SELECT * FROM TEST01";
@@ -53,7 +54,7 @@ app.get("/test1", (req, res) => {
   });
 });
 
-app.get(`http://${process.env.DB_HOST}/api/cardAll`, (req, res) => {
+app.get("/api/cardAll", (req, res) => {
   console.log("호출은 하냐? /api/cardAll");
   const selectQ = "SELECT * FROM cardAll";
   db.query(selectQ, (err, result) => {
@@ -64,7 +65,7 @@ app.get(`http://${process.env.DB_HOST}/api/cardAll`, (req, res) => {
     }
   });
 });
-app.post(`https://${process.env.DB_HOST}/api/randomCard`, (req, res) => {
+app.post(`/api/randomCard`, (req, res) => {
   console.log("호출은 하냐? /api/randomCard");
   const query = "SELECT * FROM cardAll ORDER BY RAND() LIMIT 20";
 
@@ -77,9 +78,8 @@ app.post(`https://${process.env.DB_HOST}/api/randomCard`, (req, res) => {
     }
   });
 });
-app.post(`${process.env.DB_HOST}/api/cardCorporationList`, (req, res) => {
+app.post("/api/cardCorporationList", (req, res) => {
   // cardAll 테이블에서 랜덤으로 6개의 레코드를 가져오는 SQL 쿼리
-  console.log("호출은 하냐? /api/cardCorporationList");
   const query = "SELECT * FROM cardCo";
 
   db.query(query, (err, result) => {
