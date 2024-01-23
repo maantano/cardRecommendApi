@@ -23,8 +23,6 @@ const db = mysql.createPool({
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
 });
-// const database = require("./module/db_connect.js");
-// const db = database.conn();
 
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
