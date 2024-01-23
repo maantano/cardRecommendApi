@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.port;
+const PORT = process.env.port || 8001;
 const csv = require("csv-parser");
 require("dotenv").config();
 
@@ -35,6 +35,7 @@ app.listen(PORT, () => {
   console.log("process.env.DB_HOST ==>", process.env.DB_NAME);
   console.log("process.env.DB_HOST ==>", process.env.DB_PORT);
   console.log("process.env.port ====>", process.env.port);
+  console.log("PORT ====>", PORT);
   console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
