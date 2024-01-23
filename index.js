@@ -37,7 +37,7 @@ app.listen(PORT, () => {
 });
 
 console.log(db);
-app.get("/", (req, res) => {
+app.get(`${DB_HOST}/`, (req, res) => {
   console.log("/ 호출!! ???");
 
   // const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
@@ -58,7 +58,7 @@ app.get("/test1", (req, res) => {
   });
 });
 
-app.get("/api/cardAll", (req, res) => {
+app.get(`${DB_HOST}/api/cardAll`, (req, res) => {
   console.log("호출은 하냐? /api/cardAll");
   const selectQ = "SELECT * FROM cardAll";
   db.query(selectQ, (err, result) => {
