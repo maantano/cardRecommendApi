@@ -16,31 +16,31 @@ app.use(cors(corsOptions));
 
 // DB 연결
 const mysql = require("mysql");
-// const db = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   port: process.env.DB_PORT,
-// });
-const db = mysql.createPool({
-  host: "ec2-3-38-115-252.ap-northeast-2.compute.amazonaws.com",
-  user: "root",
-  password: "MINruddjs5!",
-  database: "card",
-  port: 3306,
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
+// const db = mysql.createConnection({
+//   host: "ec2-3-38-115-252.ap-northeast-2.compute.amazonaws.com",
+//   user: "root",
+//   password: "MINruddjs5!",
+//   database: "card",
+//   port: 3306,
+// });
 
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
   console.log(`running on port ${PORT}!!`);
-  // console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
-  // console.log("process.env.DB_USER ==>", process.env.DB_USER);
-  // console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
-  // console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
-  // console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
-  // console.log("process.env.port ====>", process.env.port);
-  // console.log("process.env.DB_HOST ==>", " ===================== ");
+  console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
+  console.log("process.env.DB_USER ==>", process.env.DB_USER);
+  console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
+  console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
+  console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
+  console.log("process.env.port ====>", process.env.port);
+  console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
 console.log(db);
