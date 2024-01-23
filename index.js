@@ -39,6 +39,7 @@ app.listen(PORT, () => {
 console.log(db);
 app.get(`${process.env.DB_HOST}/`, (req, res) => {
   console.log("/ 호출!! ???");
+  console.log("/ 호출!!!!!!!!!!!!!!!!!!! ???");
 
   // const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
   // db.query(sqlQuery, (err, result) => {
