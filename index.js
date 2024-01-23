@@ -40,6 +40,7 @@ console.log(db);
 app.get(`/`, (req, res) => {
   console.log("/ 호출!! ???");
   console.log("/ 호출!!!!!!!!!!!!!!!!!!! ???");
+  res.send("임마 호출 했다!!");
 
   // const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
   // db.query(sqlQuery, (err, result) => {
