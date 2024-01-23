@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.port || 8001;
+const PORT = process.env.port;
 const csv = require("csv-parser");
 require("dotenv").config();
 
@@ -15,27 +15,28 @@ let corsOptions = {
 app.use(cors(corsOptions));
 
 // DB 연결
-// const mysql = require("mysql");
-// const db = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   port: process.env.DB_PORT,
-// });
-const database = require("./module/db_connect.js");
-const db = database.conn();
+const mysql = require("mysql");
+const db = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
+});
+// const database = require("./module/db_connect.js");
+// const db = database.conn();
 
 // 서버 연결 했을때 최초 대기 상태
-// app.listen(PORT, () => {
-//   console.log(`running on port ${PORT}!!`);
-//   console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
-//   console.log("process.env.DB_HOST ==>", process.env.DB_USER);
-//   console.log("process.env.DB_HOST ==>", process.env.DB_PASSWORD);
-//   console.log("process.env.DB_HOST ==>", process.env.DB_NAME);
-//   console.log("process.env.DB_HOST ==>", process.env.DB_PORT);
-//   console.log("process.env.DB_HOST ==>", " ===================== ");
-// });
+app.listen(PORT, () => {
+  console.log(`running on port ${PORT}!!`);
+  console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
+  console.log("process.env.DB_HOST ==>", process.env.DB_USER);
+  console.log("process.env.DB_HOST ==>", process.env.DB_PASSWORD);
+  console.log("process.env.DB_HOST ==>", process.env.DB_NAME);
+  console.log("process.env.DB_HOST ==>", process.env.DB_PORT);
+  console.log("process.env.port ====>", process.env.port);
+  console.log("process.env.DB_HOST ==>", " ===================== ");
+});
 
 app.get("/", (req, res) => {
   console.log("/ 호출!! ???");
