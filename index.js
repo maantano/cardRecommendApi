@@ -23,13 +23,6 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
 });
-// const db = mysql.createConnection({
-//   host: "ec2-3-38-115-252.ap-northeast-2.compute.amazonaws.com",
-//   user: "root",
-//   password: "MINruddjs5!",
-//   database: "card",
-//   port: 3306,
-// });
 
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
