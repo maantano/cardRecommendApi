@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.port || 8001;
 const csv = require("csv-parser");
-import dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
 
 const fs = require("fs");
 
