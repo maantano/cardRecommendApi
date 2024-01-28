@@ -57,11 +57,11 @@ const db = mysql.createConnection({
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
   console.log(`running on port ${PORT}!!`);
-  console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
-  console.log("process.env.DB_USER ==>", process.env.DB_USER);
-  console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
-  console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
-  console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
+  // console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
+  // console.log("process.env.DB_USER ==>", process.env.DB_USER);
+  // console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
+  // console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
+  // console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
   console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
@@ -75,6 +75,10 @@ app.get(`/`, (req, res) => {
   //   console.log(err);
   //   console.log("insert");
   // });
+});
+app.get(`/api`, (req, res) => {
+  console.log("/api 호출!! : )");
+  res.send("/api 임마 호출 했다!!");
 });
 
 app.get("/test1", (req, res) => {
