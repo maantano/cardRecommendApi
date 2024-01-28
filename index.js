@@ -44,6 +44,7 @@ let corsOptions = {
 };
 app.use(cors(corsOptions));
 
+console.log(app._router.stack);
 // DB 연결
 const mysql = require("mysql");
 const db = mysql.createConnection({
