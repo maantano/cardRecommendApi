@@ -1,5 +1,35 @@
+const path = require("path");
 const express = require("express");
 const app = express();
+const swaggerUi = require("swagger-ui-express");
+
+// ================================================================================================
+
+const swaggerJsdoc = require("swagger-jsdoc");
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Hello World",
+      version: "1.0.0",
+    },
+  },
+  // apis: ["./routes/*.js"], // files containing annotations as above
+  apis: ["./index.js"], // files containing annotations as above
+};
+const openapiSpec = swaggerJsdoc(options);
+console.log(openapiSpec);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpec));
+const router = express.Router();
+console.log(router);
+
+app.get("/hello", function (req, res, next) {
+  const name = req.query.name || "World";
+  res.json({ message: `Hello ${name}` });
+});
+module.exports = app;
+
+// ================================================================================================
 const PORT = process.env.port || 9000;
 const csv = require("csv-parser");
 require("dotenv").config();
@@ -27,16 +57,15 @@ const db = mysql.createConnection({
 // 서버 연결 했을때 최초 대기 상태
 app.listen(PORT, () => {
   console.log(`running on port ${PORT}!!`);
-  console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
-  console.log("process.env.DB_USER ==>", process.env.DB_USER);
-  console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
-  console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
-  console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
-
+  // console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
+  // console.log("process.env.DB_USER ==>", process.env.DB_USER);
+  // console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
+  // console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
+  // console.log("process.env.DB_PORT ==>", process.env.DB_PORT);
   console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
-console.log(db);
+// console.log(db);
 app.get(`/`, (req, res) => {
   console.log("/ 호출!! ???");
   console.log("/ 호출!!!!!!!!!!!!!!!!!!! ???");
@@ -101,7 +130,7 @@ app.post("/api/cardCorporationList", (req, res) => {
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const { PythonShell } = require("python-shell");
-const path = require("path");
+// const path = require("path");
 const { spawn } = require("child_process");
 app.use(bodyParser.json()); // JSON 형식의 요청 본문을 파싱
 app.use(bodyParser.urlencoded({ extended: true })); // URL-encoded 요청 본문을 파싱
