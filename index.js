@@ -43,7 +43,7 @@ let corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-app.use(express.static(path.join(__dirname, "/build")));
+// app.use(express.static(path.join(__dirname, "/build")));
 // DB 연결
 const mysql = require("mysql");
 const db = mysql.createConnection({
