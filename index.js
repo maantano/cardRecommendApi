@@ -65,17 +65,17 @@ app.listen(PORT, () => {
   console.log("process.env.DB_HOST ==>", " ===================== ");
 });
 
+// app.use(express.static(path.join(__dirname, "FE_with_react/build")));
+// app.get("/", (req, res) => {
+//   console.log("/ 호출!! ???");
+//   res.sendFile(path.join(__dirname, "/FE_with_react/build/index.html"));
+// });
+
 // console.log(db);
 app.get(`/`, (req, res) => {
-  res.sendFile(path.join(__dirname, "/index.html"));
   console.log("/ 호출!! ???");
-  res.send("임마 호출 했다!!");
-
-  // const sqlQuery = "INSERT INTO test01 (user_id) VALUES (1)";
-  // db.query(sqlQuery, (err, result) => {
-  //   console.log(err);
-  //   console.log("insert");
-  // });
+  res.sendFile(path.join(__dirname, "/index.html"));
+  // res.send("임마 호출 했다!!");
 });
 app.get(`/api`, (req, res) => {
   console.log("/api 호출!! : )");
