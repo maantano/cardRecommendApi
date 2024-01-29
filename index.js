@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-app.use(express.json());
+
 // ================================================================================================
 // const swaggerUi = require("swagger-ui-express");
 
@@ -44,7 +44,6 @@ let corsOptions = {
 };
 app.use(cors(corsOptions));
 
-console.log(app._router.stack);
 // DB 연결
 const mysql = require("mysql");
 const db = mysql.createConnection({
@@ -68,6 +67,7 @@ app.listen(PORT, () => {
 
 // console.log(db);
 app.get(`/`, (req, res) => {
+  res.sendFile(path.join(__dirname, "/index.html"));
   console.log("/ 호출!! ???");
   res.send("임마 호출 했다!!");
 
