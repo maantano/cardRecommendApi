@@ -45,7 +45,7 @@ let corsOptions = {
 app.use(cors(corsOptions));
 // app.use(express.static(path.join(__dirname, "/build")));
 // DB 연결
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
