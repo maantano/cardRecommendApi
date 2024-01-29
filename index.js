@@ -79,7 +79,7 @@ app.get(`/`, (req, res) => {
 });
 app.get(`/api`, (req, res) => {
   console.log("/api 호출!! : )");
-  res.send("/api 임마 호출 했다!!");
+  res.send("hello /api 호출 !!");
 });
 
 app.get("/test1", (req, res) => {
