@@ -74,12 +74,14 @@ app.listen(PORT, () => {
 // console.log(db);
 app.get(`/`, (req, res) => {
   console.log("/ 호출!! ???");
-  res.sendFile(path.join(__dirname, "/index.html"));
+  // res.sendFile(path.join(__dirname, "/index.html"));
+  res.sendFile(path.join(__dirname, "./build", "index.html"));
   // res.send("임마 호출 했다!!");
 });
 app.get(`/api`, (req, res) => {
   console.log("/api 호출!! : )");
-  res.send("hello /api 호출 !!");
+  res.sendFile(path.join(__dirname, "./build", "index.html"));
+  // res.send("hello /api 호출 !!");
 });
 
 app.get("/test1", (req, res) => {
