@@ -55,13 +55,14 @@ const db = mysql.createConnection({
 });
 
 // 서버 연결 했을때 최초 대기 상태
-app.listen(PORT, () => {
+app.listen(PORT, IP, () => {
   console.log(`running on port ${PORT}!!`);
   console.log("process.env.DB_HOST ==>", process.env.DB_HOST);
   console.log("process.env.DB_USER ==>", process.env.DB_USER);
   console.log("process.env.PASSWORD ==>", process.env.DB_PASSWORD);
   console.log("process.env.DB_NAME ==>", process.env.DB_NAME);
   console.log("process.env.DB_HOST ==>", " ===================== ");
+  console.log(`Server is running on http://${IP}:${PORT}`);
 });
 
 // app.use(express.static(path.join(__dirname, "FE_with_react/build")));
@@ -76,6 +77,7 @@ app.listen(PORT, () => {
 app.get(`/`, (req, res) => {
   console.log("/ 호출!! ???");
   console.log("__dirname ====>", __dirname);
+
   // res.sendFile(path.join(__dirname, "/index.html"));
   // res.sendFile(path.join(__dirname, "./build", "index.html"));
   res.send("임마 호출 했다!!");
